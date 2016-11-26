@@ -1,2 +1,7 @@
 /target
 .idea
+.project
+.classpath
+.settings/
+.loadpath
+*.iml
