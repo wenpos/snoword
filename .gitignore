@@ -5,3 +5,5 @@
 .settings/
 .loadpath
 *.iml
+build/
+.gradle
