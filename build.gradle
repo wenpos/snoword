@@ -9,6 +9,12 @@ repositories {
     mavenCentral()
 }
 
+task snowordProject{
+    doLast{
+        println "***Snoword Project Of Elasticsearch API***"
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
