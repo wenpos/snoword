@@ -6,4 +6,4 @@
 .loadpath
 *.iml
 build/
-.gradle
+.gradle/
