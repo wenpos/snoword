@@ -28,4 +28,5 @@ jar {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile group: 'org.elasticsearch', name: 'elasticsearch', version: '2.4.1'
+    compile group: 'com.google.inject', name: 'guice', version: '3.0'
 }
