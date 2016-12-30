@@ -7,8 +7,7 @@ sourceCompatibility = 1.8
 
 allprojects {
     repositories {
-        mavenCentral()
-        maven { url 'http://central.maven.org/maven2/' }
+        mavenLocal()
     }
 }
 
@@ -26,39 +25,10 @@ jar {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile group: 'org.elasticsearch', name: 'elasticsearch', version: '2.4.1'
-    compile group: 'com.google.inject', name: 'guice', version: '3.0'
-}
-
-/*****Version Release******/
-task makeReleaseVersion(type:ReleaseVersion){
-    //
-    release = true
-
-    destfile = file('project-version.properties')
-}
-class ReleaseVersion extends DefaultTask {
-    @Input
-    Boolean release
-    @OutputFile
-    File destFile
-
-    ReleaseVersion() {
-        groupid = $group
-        description = 'Make project a release version'
-    }
-
-    @TaskAction
-    void start() {
-        project.version.release = true
-        ant.propertyfile(file: destfile) {
-            entry {
-                key: 'release';
-                type: 'string';
-                operation: '=';
-                value: 'true'
-            }
-        }
-    }
+    testCompile 'junit:junit:4.12'
+    compile 'org.elasticsearch:elasticsearch:5.1.1'
+    compile  'com.google.inject:guice:3.0'
+    compile 'org.slf4j:slf4j-api:1.7.21'
+//    compile 'org.apache.logging.log4j:log4j-api:2.7'
+//    compile 'org.apache.logging.log4j:log4j-core:2.7'
 }

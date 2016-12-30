@@ -7,3 +7,5 @@
 *.iml
 build/
 .gradle/
+gradle.properties
+.gitignore
