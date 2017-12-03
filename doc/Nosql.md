@@ -47,10 +47,26 @@ ACID是RDB数据库在写入或更新数据过程中，为保证事务（transca
 一套严格遵守ACID的分布式事务，很可能出现系统的可用性和严格一致性发生冲突，在可用性和一致性之间永远无法有一个两全其美的方案。NoSql要求分布式，那么严格一致性和可用性之间需要相互取舍，由此衍生出CAP理论来定义分布式存储遇到的问题：
 
 ### CAP理论 ###
-- C - Consistency - 一致性：all the nodes see the same data at the same time，一致性的
-- A - Availability - 可用性：reads and writes always succeed
-- P - Partition Tolerance - 分区容错性：the system continues to operate despite arbitary message loss or failure of part of the system
+- **C - Consistency - 一致性**：Every read receives the most recent write or an error，每次访问都返回最新的写入数据或错误（强一致性）
+- **A - Availability - 可用性**：Every request receives a (non-error) response – without guarantee that it contains the most recent write，每次请求都会收到非错误响应，却无法保证是最新的写入数据
+- **P - Partition Tolerance - 分区容错性**：The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes，尽管由于节点间网络原因，部分数据丢失或延迟，但系统仍然能提供服务
+
+**分区**相当于通信的时限要求，系统如果不能在时限内达到数据一致性，就意味着发生了分区情况
+
+**容错**相当于发生分区时，仍能够对外提供一致性（非强一致性）和可用性的服务
+
+
+没有任何一个分布式系统能够剥离网络故障的影响，这就要求，分布式系统需要满足最基本的要求，即分区容错性，因此，只剩下C和A的抉择和权衡，这里往往有个误解：并不是我们必须在C、A、P三个中取两个，放弃另一个，事实上，只有当发生网络分区时，才需要权衡CA,选取一个，当没有网络分区时，CA是可以同时满足的：
+
+- P 不发生，C、A可以同时满足，此时认为分布式系统也是满足事务性的，当然，这个是理想情况，P往往不可抗因素，CA系统更多的是在发生分区后，允许分离为子CA系统；
+- P 发生，取C，不取A，例如传统RDBMS，使用ACID理论
+- P 发生，取A，不取C，例如NoSql，使用BASE理论
+
+
  
 
 
+**参考**：
 
+https://en.wikipedia.org/wiki/CAP_theorem
+https://baike.baidu.com/item/CAP%E5%8E%9F%E5%88%99/5712863
