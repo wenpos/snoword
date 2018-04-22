@@ -1,11 +1,28 @@
-/target
-.idea
+# intellij files
+.idea/
+*.iml
+*.ipr
+*.iws
+build-idea/
+
+# eclipse files
 .project
 .classpath
-.settings/
-.loadpath
-*.iml
-build/
+.settings
+build-eclipse/
+
+# netbeans files
+nb-configuration.xml
+nbactions.xml
+
+# gradle stuff
 .gradle/
-gradle.properties
-.gitignore
+build/
+
+
+# gradle wrapper
+/gradle/
+gradlew
+gradlew.bat
+target/
+dependency-reduced-pom.xml
