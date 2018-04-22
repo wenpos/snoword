@@ -1,9 +1,5 @@
-group 'org.elasticsearch'
+group 'org.snoword'
 version '1.0-SNAPSHOT'
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
 
 allprojects {
     repositories {
@@ -12,23 +8,3 @@ allprojects {
     }
 }
 
-
-task snowordProject {
-    doLast {
-        println "***Snoword Project Of Elasticsearch API***"
-    }
-}
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'hello.HelloWorld'
-    }
-}
-
-dependencies {
-    testCompile 'junit:junit:4.12'
-    compile 'org.elasticsearch:elasticsearch:5.4.3'
-    compile  'com.google.inject:guice:3.0'
-//    compile 'org.apache.logging.log4j:log4j-api:2.7'
-//    compile 'org.apache.logging.log4j:log4j-core:2.7'
-}

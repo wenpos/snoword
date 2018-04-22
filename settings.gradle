@@ -1,2 +1,5 @@
 rootProject.name = 'snoword'
+include 'app', 'api'
+
+
 
