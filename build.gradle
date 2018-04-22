@@ -8,6 +8,7 @@ sourceCompatibility = 1.8
 allprojects {
     repositories {
         mavenLocal()
+        mavenCentral()
     }
 }
 
@@ -26,9 +27,8 @@ jar {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile 'org.elasticsearch:elasticsearch:5.1.1'
+    compile 'org.elasticsearch:elasticsearch:5.4.3'
     compile  'com.google.inject:guice:3.0'
-    compile 'org.slf4j:slf4j-api:1.7.21'
 //    compile 'org.apache.logging.log4j:log4j-api:2.7'
 //    compile 'org.apache.logging.log4j:log4j-core:2.7'
 }
